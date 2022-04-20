@@ -19,19 +19,34 @@ import {
   StatusBar,
 } from 'react-native';
 
+import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+
+
+
 import LoginScreen from './screens/LoginScreen'
+import SignupScreen from './screens/SignupScreen'
+import CreateAdScreen from './screens/CreateAdScreen';
 
-
-
+const theme = {
+  ...DefaultTheme,
+  roundness: 2,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: 'deepskyblue'
+  },
+};
 
 const App =() => {
   return (
     <>
-  
+    <PaperProvider theme={theme}>
     <StatusBar barStyle="dark-content" backgroundColor="deepskyblue"/>
     <View style = {styles.container}>
-        <LoginScreen />
+        {/*<LoginScreen />*/}
+        {/*<SignupScreen/>*/}
+        <CreateAdScreen/>
     </View>
+    </PaperProvider>
     </>
   );
 };
@@ -39,7 +54,7 @@ const App =() => {
 const styles = StyleSheet.create({
   container :{
     flex:1,
-    backgroundColor:"black"
+    backgroundColor:"white"
     
   }
  

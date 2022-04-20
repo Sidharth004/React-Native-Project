@@ -32,7 +32,7 @@ const LoginScreen = () => {
           onChangeText={text => setPassword(text)}
         />
          <Button icon="" mode="contained" onPress={() => console.log('Pressed')}>
-          Login
+          SignUp
         </Button>
       </View>
     </KeyboardAvoidingView>
