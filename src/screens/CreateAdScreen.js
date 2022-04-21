@@ -9,7 +9,11 @@ const CreateAdScreen = () => {
     const[price,setPrice]=useState('')
     const[phone,setPhone]=useState('')
 
-  return (
+  return 
+   <KeyboardAvoidingView behavior="padding">
+      <Appbar.Header>
+       <Appbar.Content title="Booking Areana"/>
+      </Appbar.Header>
     <View style={styles.box1}>
       <Text>CreateAdScreen</Text>
       <TextInput
@@ -47,13 +51,19 @@ const CreateAdScreen = () => {
           keyboardType="number-pad"
           onChangeText={number => setPhone(number)}
         />
+         <Button mode="contained" onPress={() => console.log('Pressed')}>
+           BOOK
+         </Button>
     </View>
+   </KeyboardAvoidingView>
   )
 }
 
 const styles = StyleSheet.create({
     box1:{
-        justifyContent:"space-evenly"
+        justifyContent:"space-evenly",
+        paddingHorizontal:40,
+        top:20%
     }
   });
 
