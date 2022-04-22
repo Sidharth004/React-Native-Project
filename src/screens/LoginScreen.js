@@ -32,8 +32,7 @@ const LoginScreen = () => {
           onChangeText={text => setPassword(text)}
         />
         <View>
-          <Text style={{align:"left"}}> Create An Account </Text>
-          <Text style={{align:"right"}}> Forget Password </Text>
+          <Text>Forgot Password</Text>
         </View>
          <Button icon="" mode="contained" onPress={() => console.log('Pressed')}>
           Login
@@ -55,8 +54,8 @@ const styles = StyleSheet.create({
   },
   text:{
     fontSize:25
-    
-  }
+
+  },
 });
 
 export default LoginScreen

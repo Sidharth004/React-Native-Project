@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, KeyboardAvoidingView } from 'react-native'
 import{ TextInput, Button, Appbar} from 'react-native-paper'
 
 const CreateAdScreen = () => {
@@ -9,7 +9,7 @@ const CreateAdScreen = () => {
     const[price,setPrice]=useState('')
     const[phone,setPhone]=useState('')
 
-  return 
+  return (
    <KeyboardAvoidingView behavior="padding">
       <Appbar.Header>
        <Appbar.Content title="Booking Areana"/>
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     box1:{
         justifyContent:"space-evenly",
         paddingHorizontal:40,
-        top:20%
+        top:"20%"
     }
   });
 

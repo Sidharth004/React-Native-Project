@@ -5,7 +5,7 @@ import { ScreenContainer } from 'react-native-screens';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const LoginScreen = () => {
-  const [licenseno, setLicenseno] = useState('')
+  const [license, setLicenseno] = useState('')
   const [name, setName] = useState('')
   const [areaofservice, setAreaofservice] = useState('')
   const [pincode, setPincode] = useState('')
@@ -14,7 +14,7 @@ const LoginScreen = () => {
   return (
     <KeyboardAvoidingView behavior="padding">
       <Appbar.Header>
-       <Appbar.Content title="Awesome Project"/>
+       <Appbar.Content title="Register"/>
     </Appbar.Header>
       {/*
       <View style={styles.box1}>
@@ -59,7 +59,7 @@ const LoginScreen = () => {
           secureTextEntry={true}
           onChangeText={text => setPassword(text)}
         />
-         <Button icon="" mode="contained" onPress={() => console.log('Pressed')}>
+         <Button style={styles.button1} mode="contained" onPress={() => console.log('Pressed')}>
           SignUp
         </Button>
       </View>
@@ -73,13 +73,15 @@ const styles = StyleSheet.create({
   },
   box2:{
     paddingHorizontal:40,
-    height:"50%",
     justifyContent:"space-evenly",
-    top:"49%"
+    top:"25%"
   },
   text:{
     fontSize:25
-    
+
+  },
+  button1:{
+    top:"3%"
   }
 });
 

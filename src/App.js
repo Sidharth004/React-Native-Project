@@ -43,8 +43,8 @@ const App =() => {
     <StatusBar barStyle="dark-content" backgroundColor="deepskyblue"/>
     <View style = {styles.container}>
         {/*<LoginScreen />*/}
-        {/*<SignupScreen/>*/}
-        <CreateAdScreen/>
+        <SignupScreen/>
+        {/*<CreateAdScreen/>*/}
     </View>
     </PaperProvider>
     </>
