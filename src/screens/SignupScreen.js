@@ -5,6 +5,10 @@ import { ScreenContainer } from 'react-native-screens';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const LoginScreen = () => {
+  const [licenseno, setLicenseno] = useState('')
+  const [name, setName] = useState('')
+  const [areaofservice, setAreaofservice] = useState('')
+  const [pincode, setPincode] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   return (
@@ -18,6 +22,30 @@ const LoginScreen = () => {
         <Text style={styles.text}>Login to continue!</Text>
       </View>*/}
       <View style={styles.box2}>
+        <TextInput
+          label="License"
+          value={license}
+          mode="outlined"
+          onChangeText={text => setLincenseno(text)}
+        />
+        <TextInput
+          label="Name"
+          value={name}
+          mode="outlined"
+          onChangeText={text => setName(text)}
+        />
+        <TextInput
+          label="Area of Service"
+          value={areaofservice}
+          mode="outlined"
+          onChangeText={text => setAreaofservice(text)}
+        />
+        <TextInput
+          label="Pincode"
+          value={pincode}
+          mode="outlined"
+          onChangeText={text => setPincode(text)}
+        />
         <TextInput
           label="Email"
           value={email}
