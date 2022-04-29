@@ -1,16 +1,32 @@
 import React,{useState} from 'react'
-import { View, Text ,Image,StyleSheet, KeyboardAvoidingView} from 'react-native'
+import { View, Text ,Image,StyleSheet, KeyboardAvoidingView, TouchableOpacity,Alert} from 'react-native'
 import{ TextInput, Button, Appbar} from 'react-native-paper'
 import { ScreenContainer } from 'react-native-screens';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import auth from '@react-native-firebase/auth';
 
-const LoginScreen = () => {
+
+const LoginScreen = ({navigation}) => {
   const [license, setLicenseno] = useState('')
   const [name, setName] = useState('')
   const [areaofservice, setAreaofservice] = useState('')
   const [pincode, setPincode] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
+  const userSignup =async()=>{
+    if(!email||!password){
+      Alert.alert("please check your mail-id")
+      return
+    }
+    try{
+      await auth().createUserWithEmailAndPassword(email,password)
+    }catch(err){
+      Alert.alert("something went wrong ! Incorrect password or email")
+    }
+
+
+  }
   return (
     <KeyboardAvoidingView behavior="padding">
       <Appbar.Header>
@@ -59,9 +75,10 @@ const LoginScreen = () => {
           secureTextEntry={true}
           onChangeText={text => setPassword(text)}
         />
-         <Button style={styles.button1} mode="contained" onPress={() => console.log('Pressed')}>
+         <Button style={styles.button1} mode="contained" onPress={() => userSignup()}>
           SignUp
         </Button>
+        <TouchableOpacity onPress={()=>navigation.goBack()}><Text>Login?</Text></TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
   )

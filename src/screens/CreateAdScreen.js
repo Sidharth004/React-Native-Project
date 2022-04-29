@@ -15,7 +15,7 @@ const CreateAdScreen = () => {
        <Appbar.Content title="Booking Areana"/>
       </Appbar.Header>
     <View style={styles.box1}>
-      <Text>CreateAdScreen</Text>
+      <Text style={styles.text}>CreateAdScreen</Text>
       <TextInput
           label="Ad Name"
           value={name}
@@ -51,9 +51,13 @@ const CreateAdScreen = () => {
           keyboardType="number-pad"
           onChangeText={number => setPhone(number)}
         />
-         <Button mode="contained" onPress={() => console.log('Pressed')}>
-           BOOK
+         <Button icon="camera"mode="contained" onPress={() => console.log('Pressed')}>
+           Upload Image
          </Button>
+         <Button mode="contained" onPress={() => console.log('Pressed')}>
+           Book Slot
+         </Button>
+
     </View>
    </KeyboardAvoidingView>
   )
@@ -64,7 +68,12 @@ const styles = StyleSheet.create({
         justifyContent:"space-evenly",
         paddingHorizontal:40,
         top:"20%"
+    },
+    text:{
+      fontSize:25,
+      textAlign:"center"
     }
+    
   });
 
 export default CreateAdScreen
