@@ -1,14 +1,38 @@
 import React,{useState} from 'react'
-import { View, Text, StyleSheet, KeyboardAvoidingView } from 'react-native'
+import { View, Text, StyleSheet, KeyboardAvoidingView,Alert } from 'react-native'
 import{ TextInput, Button, Appbar} from 'react-native-paper'
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
 
 const CreateAdScreen = () => {
-    const[name,setName]=useState('')
+    const[name,setName]=useState('')  
     const[desc,setDesc]=useState('')
     const[year,setYear]=useState('')
     const[price,setPrice]=useState('')
     const[phone,setPhone]=useState('')
 
+   const postData = async ()=>{
+    try{
+      await firestore().collection('adds')
+     .add({
+      name,
+      desc,
+      year,
+      price,
+      phone, 
+      image : "https://images.unsplash.com/photo-1631201885736-dc93178edbea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+      uid:auth().currentUser.uid
+    })
+    Alert.alert("posted your add!")
+
+  }catch(err){
+    Alert.alert("something went wrong !")
+  }
+    
+    }
+    
+
+   
   return (
    <KeyboardAvoidingView behavior="padding">
       <Appbar.Header>
@@ -54,7 +78,7 @@ const CreateAdScreen = () => {
          <Button icon="camera"mode="contained" onPress={() => console.log('Pressed')}>
            Upload Image
          </Button>
-         <Button mode="contained" onPress={() => console.log('Pressed')}>
+         <Button mode="contained" onPress={() =>postData()}>
            Book Slot
          </Button>
 
