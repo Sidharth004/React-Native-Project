@@ -1,9 +1,10 @@
+import React,{useEffect,useState} from 'react'
 import { View, Text ,FlatList,StyleSheet} from 'react-native'
 import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
-import React from 'react'
+import firestore from '@react-native-firebase/firestore';
 
 const ListItemsscreen = () => {
-
+    const [items,setItems]=useState([])
     const myitems =[
         {
             name:"xyz",
@@ -22,18 +23,30 @@ const ListItemsscreen = () => {
         },
 
     ]
+    const getDetails = async ()=>{
+       const querySnap = await firestore().collection('adds').get() 
+       const result  = querySnap.docs.map(docSnap=>docSnap.data())
+       console.log(result)
+       setItems(result)
+    }
+    useEffect(()=>{
+       getDetails()
+       return()=>{
+         console.log("cleanup")
+       }
 
+     },[])
     const renderItem =(item)=>{
        return( <Card style={styles.card}>
         {/*<Card.Title title="Card Title" subtitle="Card Subtitle" left={LeftContent} />*/}
         <Card.Title title = {item.name} />
         <Card.Content>
-          <Paragraph>item.desc</Paragraph>
-          <Paragraph>year...actually we need here the date and time of booking</Paragraph>
+          <Paragraph>{item.desc}</Paragraph>
+          <Paragraph>{item.year}</Paragraph>
         </Card.Content>
         <Card.Cover source={{ uri: item.image }} />
         <Card.Actions>
-          <Button>200</Button>
+          <Button>{item.price}</Button>
           <Button>call seller</Button>
         </Card.Actions>
       </Card>
@@ -43,7 +56,7 @@ const ListItemsscreen = () => {
     <View>
       {/*<Text>ListItemsscreen</Text>*/}
       <FlatList
-      data={myitems}
+      data={items}
       keyExtractor={(item)=>item.phone}
       renderItem={({item})=>renderItem(item)}
       />
@@ -55,9 +68,7 @@ const styles = StyleSheet.create({
     card:{
         margin:10,
         elevation:2,
-    },
-   
-    
+    }, 
   });
 
 
