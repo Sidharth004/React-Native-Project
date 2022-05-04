@@ -22,7 +22,7 @@ import {
 import 'react-native-gesture-handler';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer ,DefaultTheme as DefaultThemeNav} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -42,6 +42,14 @@ const theme = {
     primary: 'deepskyblue'
   },
 };
+const MyTheme = {
+  ...DefaultThemeNav,
+  colors: {
+    ...DefaultThemeNav.colors,
+    background: 'pink',
+  },
+};
+
 const Stack = createStackNavigator() 
 const Tab = createBottomTabNavigator();
 
@@ -99,7 +107,7 @@ const Navigation =()=>{
   return unsubscribe 
 },[])
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={MyTheme}>
         {user?<TabNavigator/>:<AuthNavigator/>}
         
     </NavigationContainer>

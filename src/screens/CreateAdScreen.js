@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, KeyboardAvoidingView,Alert } from 'react-native
 import{ TextInput, Button, Appbar} from 'react-native-paper'
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 
 const CreateAdScreen = () => {
     const[name,setName]=useState('')  
@@ -32,7 +33,9 @@ const CreateAdScreen = () => {
     }
     
 
+ const openCamera = ()=>{
    
+ } 
   return (
    <KeyboardAvoidingView behavior="padding">
       <Appbar.Header>
