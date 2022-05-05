@@ -4,6 +4,7 @@ import{ TextInput, Button, Appbar} from 'react-native-paper'
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import storage from '@react-native-firebase/storage';
 
 const CreateAdScreen = () => {
     const[name,setName]=useState('')  
@@ -11,6 +12,7 @@ const CreateAdScreen = () => {
     const[year,setYear]=useState('')
     const[price,setPrice]=useState('')
     const[phone,setPhone]=useState('')
+    const[image,setImage]=useState("")
 
    const postData = async ()=>{
     try{
@@ -20,8 +22,8 @@ const CreateAdScreen = () => {
       desc,
       year,
       price,
-      phone, 
-      image : "https://images.unsplash.com/photo-1631201885736-dc93178edbea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+      phone,
+      image,
       uid:auth().currentUser.uid
     })
     Alert.alert("posted your add!")
@@ -34,7 +36,29 @@ const CreateAdScreen = () => {
     
 
  const openCamera = ()=>{
-   
+    launchCamera({quality:0.5},(fileobj)=>{
+      console.log(fileobj)
+      {/*const uploadTask = storage().ref().child(`/items/${Date.now()}`).putFile()
+      uploadTask.on('state_changed', 
+      (snapshot) => {
+        
+        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          if(progress=100){alert("Uploaded")}
+        
+      }, 
+      (error) => {
+        alert("Something Went Wrong")
+      }, 
+      () => {
+        // Handle successful uploads on complete
+        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+        uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+          //console.log('File available at', downloadURL);
+          setImage(downloadURL)
+        });
+      }
+    );*/}
+    })
  } 
   return (
    <KeyboardAvoidingView behavior="padding">
@@ -78,7 +102,7 @@ const CreateAdScreen = () => {
           keyboardType="number-pad"
           onChangeText={number => setPhone(number)}
         />
-         <Button icon="camera"mode="contained" onPress={() => console.log('Pressed')}>
+         <Button icon="camera"mode="contained" onPress={() => openCamera()}>
            Upload Image
          </Button>
          <Button mode="contained" onPress={() =>postData()}>

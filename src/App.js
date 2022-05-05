@@ -83,7 +83,7 @@ const TabNavigator=()=>{
       })}
     tabBarOptions={{
         activeTintColor: 'deepskyblue',
-        inactiveTintColor: 'gray',
+        inactiveTintColor: 'pink',
       }}
     >
         <Tab.Screen name="Home" component={ListItemsscreen}  options={{title:""}} />

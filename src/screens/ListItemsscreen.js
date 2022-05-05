@@ -50,6 +50,7 @@ const ListItemsscreen = () => {
       data={items}
       keyExtractor={(item)=>item.phone}
       renderItem={({item})=>renderItem(item)}
+      inverted
       />
     </View>
   )
