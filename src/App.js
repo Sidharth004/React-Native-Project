@@ -29,6 +29,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import LoginScreen from './screens/LoginScreen'
 import SignupScreen from './screens/SignupScreen'
 import CreateAdScreen from './screens/CreateAdScreen';
+import FrontScreen from './screens/FrontScreen';
 import ListItemsscreen  from './screens/ListItemsscreen';
 import AccountScreen from './screens/AccountScreen';
 import Feather from 'react-native-vector-icons/Feather'
@@ -46,7 +47,7 @@ const MyTheme = {
   ...DefaultThemeNav,
   colors: {
     ...DefaultThemeNav.colors,
-    background: 'pink',
+    background: 'white',
   },
 };
 
@@ -56,8 +57,9 @@ const Tab = createBottomTabNavigator();
 const AuthNavigator =()=>{
   return(
     <Stack.Navigator>
-        <Stack.Screen name="Login" component={LoginScreen} options={{headerShown:false}}/>
-        <Stack.Screen name="Signup" component={SignupScreen} options={{headerShown:false}} />
+        <Stack.Screen name="FrontScreen" component={FrontScreen} options={{headerShown:true, title:"ScrapIT"}}/>
+        <Stack.Screen name="Login" component={LoginScreen} options={{headerShown:true, title:"Login"}}/>
+        <Stack.Screen name="Signup" component={SignupScreen} options={{headerShown:true, title:"Registration"}} />
       </Stack.Navigator>
   )
 }
@@ -83,7 +85,7 @@ const TabNavigator=()=>{
       })}
     tabBarOptions={{
         activeTintColor: 'deepskyblue',
-        inactiveTintColor: 'pink',
+        inactiveTintColor: 'black',
       }}
     >
         <Tab.Screen name="Home" component={ListItemsscreen}  options={{title:""}} />

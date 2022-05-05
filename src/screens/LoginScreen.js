@@ -24,13 +24,6 @@ const LoginScreen = ({navigation}) => {
   }
   return (
     <KeyboardAvoidingView behavior="padding">
-      {/*<Appbar.Header>
-       <Appbar.Content title="Awesome Project"/>
-      </Appbar.Header>
-      <View style={styles.box1}>
-        <Image style={{width:200,height:200}} source={require('../assets/img1.jpeg')}/>
-        <Text style={styles.text}>Login to continue!</Text>
-      </View>*/}
       <View style={styles.box2}>
         <TextInput
           label="Email"
@@ -46,12 +39,12 @@ const LoginScreen = ({navigation}) => {
           onChangeText={text => setPassword(text)}
         />
         <View>
-          <TouchableOpacity><Text>Forgot Password</Text></TouchableOpacity>
+          {/*<TouchableOpacity><Text style={styles.onlyspacing}>Forgot Password</Text></TouchableOpacity>*/}
         </View>
-         <Button icon="" mode="contained" onPress={() => userLogin()}>
+         <Button mode="contained" style={styles.button} onPress={() => userLogin()}>
           Login
         </Button>
-        <TouchableOpacity onPress={()=>navigation.navigate("Signup")}><Text>Don't have an Account?</Text></TouchableOpacity>
+        {/*<TouchableOpacity onPress={()=>navigation.navigate("Signup")}><Text style={styles.onlyspacing}>Don't have an Account?</Text></TouchableOpacity>*/}
       </View>
     </KeyboardAvoidingView>
   )
@@ -71,6 +64,13 @@ const styles = StyleSheet.create({
     fontSize:25
 
   },
+  button:{
+    borderRadius:5,
+    top:"5%"
+  },
+  onlyspacing:{
+    top:"3%"
+  }
 });
 
 export default LoginScreen

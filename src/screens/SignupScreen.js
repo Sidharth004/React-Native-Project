@@ -4,6 +4,7 @@ import{ TextInput, Button, Appbar} from 'react-native-paper'
 import { ScreenContainer } from 'react-native-screens';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import auth from '@react-native-firebase/auth';
+import { color } from 'react-native-reanimated';
 
 
 const LoginScreen = ({navigation}) => {
@@ -29,56 +30,53 @@ const LoginScreen = ({navigation}) => {
   }
   return (
     <KeyboardAvoidingView behavior="padding">
-      <Appbar.Header>
-       <Appbar.Content title="Register"/>
-    </Appbar.Header>
-      {/*
-      <View style={styles.box1}>
-        <Image style={{width:200,height:200}} source={require('../assets/img1.jpeg')}/>
-        <Text style={styles.text}>Login to continue!</Text>
-      </View>*/}
       <View style={styles.box2}>
         <TextInput
           label="License"
           value={license}
           mode="outlined"
-          onChangeText={text => setLincenseno(text)}
+          keyboardType="number-pad"
+          onChangeText={text =>setLicenseno(text)}
         />
         <TextInput
           label="Name"
           value={name}
           mode="outlined"
+          keyboardType="default"
           onChangeText={text => setName(text)}
         />
         <TextInput
           label="Area of Service"
           value={areaofservice}
           mode="outlined"
+          keyboardType="default"
           onChangeText={text => setAreaofservice(text)}
         />
         <TextInput
           label="Pincode"
           value={pincode}
           mode="outlined"
+          keyboardType="number-pad"
           onChangeText={text => setPincode(text)}
         />
         <TextInput
           label="Email"
           value={email}
           mode="outlined"
+          keyboardType="email-address"
           onChangeText={text => setEmail(text)}
         />
         <TextInput
           label="Password"
           value={password}
           mode="outlined"
+          keyboardType="default"
           secureTextEntry={true}
           onChangeText={text => setPassword(text)}
         />
          <Button style={styles.button1} mode="contained" onPress={() => userSignup()}>
           SignUp
         </Button>
-        <TouchableOpacity onPress={()=>navigation.goBack()}><Text>Login?</Text></TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
   )
