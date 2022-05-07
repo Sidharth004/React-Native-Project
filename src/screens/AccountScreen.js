@@ -8,7 +8,7 @@ const AccountScreen = () => {
 
   return (
     <View>
-      <Text>Name {auth().currentUser.}</Text>
+      <Text>Name {auth().currentUser.email}</Text>
       <Button mode="contained" onPress={() => auth().signOut()}>
           LogOut
         </Button>

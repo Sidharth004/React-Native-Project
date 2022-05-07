@@ -5,6 +5,7 @@ import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import storage from '@react-native-firebase/storage';
+import AccountScreen from './AccountScreen';
 
 const CreateAdScreen = () => {
     const[name,setName]=useState('')  
@@ -127,4 +128,4 @@ const styles = StyleSheet.create({
     
   });
 
-export default CreateAdScreen
+export default AccountScreen
