@@ -13,7 +13,7 @@ const CreateAdScreen = () => {
     const[year,setYear]=useState('')
     const[price,setPrice]=useState('')
     const[phone,setPhone]=useState('')
-    const[image,setImage]=useState("")
+    {/*const[image,setImage]=useState("")*/}
 
    const postData = async ()=>{
     try{
@@ -24,7 +24,7 @@ const CreateAdScreen = () => {
       year,
       price,
       phone,
-      image,
+      image:"https://media.istockphoto.com/vectors/ewaste-in-recycling-bin-vector-id474368084?k=20&m=474368084&s=170667a&w=0&h=2nTJjAuokLcr4xq3R4XlrDDmMvfapHN5kRwPQMypHMs=",
       uid:auth().currentUser.uid
     })
     Alert.alert("posted your add!")
