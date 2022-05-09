@@ -10,8 +10,8 @@ import AccountScreen from './AccountScreen';
 const CreateAdScreen = () => {
     const[name,setName]=useState('')  
     const[desc,setDesc]=useState('')
-    const[year,setYear]=useState('')
-    const[price,setPrice]=useState('')
+    const[date,setDate]=useState('')
+    const[pincode,setPincode]=useState('')
     const[phone,setPhone]=useState('')
     {/*const[image,setImage]=useState("")*/}
 
@@ -21,8 +21,8 @@ const CreateAdScreen = () => {
      .add({
       name,
       desc,
-      year,
-      price,
+      date,
+      pincode,
       phone,
       image:"https://media.istockphoto.com/vectors/ewaste-in-recycling-bin-vector-id474368084?k=20&m=474368084&s=170667a&w=0&h=2nTJjAuokLcr4xq3R4XlrDDmMvfapHN5kRwPQMypHMs=",
       uid:auth().currentUser.uid
@@ -64,7 +64,7 @@ const CreateAdScreen = () => {
   return (
    <KeyboardAvoidingView behavior="padding">
       <Appbar.Header>
-       <Appbar.Content title="Booking Areana"/>
+       <Appbar.Content title="Book A Slot"/>
       </Appbar.Header>
     <View style={styles.box1}>
       <Text style={styles.text}>CreateAdScreen</Text>
@@ -83,18 +83,18 @@ const CreateAdScreen = () => {
           onChangeText={text => setDesc(text)}
         />
         <TextInput
-          label="Ad Year"
-          value={year}
+          label="Ad Date"
+          value={date}
           mode="outlined"
           keyboardType="numeric"
-          onChangeText={date => setYear(date)}
+          onChangeText={date => setDate(date)}
         />
         <TextInput
-          label="Ad Price"
-          value={price}
+          label="Ad Pincode"
+          value={pincode}
           mode="outlined"
           keyboardType="numeric"
-          onChangeText={number => setPrice(number)}
+          onChangeText={number => setPincode(number)}
         />
         <TextInput
           label="Add contact"
@@ -107,7 +107,7 @@ const CreateAdScreen = () => {
            Upload Image
          </Button>
          <Button mode="contained" onPress={() =>postData()}>
-           Book Slot
+           Book
          </Button>
 
     </View>
