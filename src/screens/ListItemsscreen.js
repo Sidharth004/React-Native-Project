@@ -33,11 +33,11 @@ const ListItemsscreen = () => {
         <Card.Title title = {item.name} />
         <Card.Content>
           <Paragraph>{item.desc}</Paragraph>
-          <Paragraph>{item.year}</Paragraph>
+          <Paragraph>{item.datev}</Paragraph>
         </Card.Content>
         <Card.Cover source={{ uri: item.image }} />
         <Card.Actions>
-          <Button>{item.price}</Button>
+          <Button>{item.pincode}</Button>
           <Button onPress={()=>openDial()}>call seller</Button>
         </Card.Actions>
       </Card>

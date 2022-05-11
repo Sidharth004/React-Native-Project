@@ -10,7 +10,7 @@ import AccountScreen from './AccountScreen';
 const CreateAdScreen = () => {
     const[name,setName]=useState('')  
     const[desc,setDesc]=useState('')
-    const[date,setDate]=useState('')
+    const[datev,setDatev]=useState('')
     const[pincode,setPincode]=useState('')
     const[phone,setPhone]=useState('')
     {/*const[image,setImage]=useState("")*/}
@@ -21,13 +21,13 @@ const CreateAdScreen = () => {
      .add({
       name,
       desc,
-      date,
+      datev,
       pincode,
       phone,
       image:"https://media.istockphoto.com/vectors/ewaste-in-recycling-bin-vector-id474368084?k=20&m=474368084&s=170667a&w=0&h=2nTJjAuokLcr4xq3R4XlrDDmMvfapHN5kRwPQMypHMs=",
       uid:auth().currentUser.uid
     })
-    Alert.alert("posted your add!")
+    Alert.alert("posted !")
 
   }catch(err){
     Alert.alert("something went wrong !")
@@ -84,10 +84,10 @@ const CreateAdScreen = () => {
         />
         <TextInput
           label="Ad Date"
-          value={date}
+          value={datev}
           mode="outlined"
           keyboardType="numeric"
-          onChangeText={date => setDate(date)}
+          onChangeText={date => setDatev(date)}
         />
         <TextInput
           label="Ad Pincode"
