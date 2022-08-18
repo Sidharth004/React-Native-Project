@@ -67,15 +67,15 @@ const CreateAdScreen = () => {
        <Appbar.Content title="Book A Slot"/>
       </Appbar.Header>
     <View style={styles.box1}>
-      <Text style={styles.text}>CreateAdScreen</Text>
+      <Text style={styles.text}>Book your collection request</Text>
       <TextInput
-          label="Ad Name"
+          label="Request For?"
           value={name}
           mode="outlined"
           onChangeText={text => setName(text)}
         />
         <TextInput
-          label="Ad Desc"
+          label="Scrap Details"
           value={desc}
           mode="outlined"
           numberOfLines={5}
@@ -83,21 +83,21 @@ const CreateAdScreen = () => {
           onChangeText={text => setDesc(text)}
         />
         <TextInput
-          label="Ad Date"
+          label="Pick-up date "
           value={datev}
           mode="outlined"
           keyboardType="numeric"
           onChangeText={date => setDatev(date)}
         />
         <TextInput
-          label="Ad Pincode"
+          label="Area Pincode"
           value={pincode}
           mode="outlined"
           keyboardType="numeric"
           onChangeText={number => setPincode(number)}
         />
         <TextInput
-          label="Add contact"
+          label=" contact number"
           value={phone}
           mode="outlined"
           keyboardType="number-pad"
